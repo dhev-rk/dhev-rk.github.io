@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Note — Dhevathi Rajagopalan Kannan</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-brand">Dhev Kannan</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="cv.html">CV</a>
+      <a href="blog.html" class="active">Notes</a>
+      <a href="https://github.com/dhev-rk" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header class="post-header">
+  <div class="wrap">
+    <p class="eyebrow" id="post-date">&nbsp;</p>
+    <h1 id="post-title">Loading…</h1>
+    <p class="post-tags" id="post-tags"></p>
+  </div>
+</header>
+
+<article class="post-body">
+  <div class="wrap" id="post-content"></div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Dhevathi Rajagopalan Kannan · <a href="mailto:dhevathirk@gmail.com">dhevathirk@gmail.com</a> · Houston, TX</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  loadSinglePost();
+</script>
+</body>
+</html>
