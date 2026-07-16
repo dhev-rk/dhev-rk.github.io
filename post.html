@@ -11,27 +11,59 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-brand">Dhev Kannan</a>
+    <a href="index.html" class="nav-brand">Dhevathi Rajagopalan Kannan</a>
     <div class="nav-links">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="cv.html">CV</a>
       <a href="blog.html" class="active">Notes</a>
+      <a href="projects.html">Projects</a>
       <a href="https://github.com/dhev-rk" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/dhevathirajan/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
+    <button class="rail-toggle" id="rail-toggle" aria-label="Show story info">☰</button>
   </div>
 </nav>
 
-<header class="post-header">
-  <div class="wrap">
-    <p class="eyebrow" id="post-date">&nbsp;</p>
-    <h1 id="post-title">Loading…</h1>
-    <p class="post-tags" id="post-tags"></p>
-  </div>
-</header>
+<div class="wrap">
+  <div class="post-layout">
 
-<article class="post-body">
-  <div class="wrap" id="post-content"></div>
-</article>
+    <aside class="post-rail" id="post-rail">
+      <div class="rail-section">
+        <p class="rail-label">Share this story</p>
+        <div class="share-icons" id="share-icons">
+          <a href="#" id="share-email" aria-label="Share by email">✉</a>
+          <a href="#" id="share-copy" aria-label="Copy link">🔗</a>
+          <a href="#" id="share-x" target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
+          <a href="#" id="share-linkedin" target="_blank" rel="noopener" aria-label="Share on LinkedIn">in</a>
+        </div>
+      </div>
+      <div class="rail-section">
+        <p class="rail-label">Tags</p>
+        <div class="rail-tags" id="rail-tags"></div>
+      </div>
+      <div class="rail-section" id="rail-related-wrap" style="display:none;">
+        <p class="rail-label">Related</p>
+        <ul class="rail-related" id="rail-related"></ul>
+      </div>
+    </aside>
+
+    <div>
+      <header class="post-header">
+        <p class="eyebrow" id="post-date">&nbsp;</p>
+        <h1 id="post-title">Loading…</h1>
+      </header>
+
+      <article class="post-body" id="post-content"></article>
+
+      <section class="references" id="references-block" style="display:none;">
+        <h2>References</h2>
+        <ol id="references-list"></ol>
+      </section>
+    </div>
+
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -43,6 +75,10 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
   loadSinglePost();
+
+  document.getElementById('rail-toggle').addEventListener('click', () => {
+    document.getElementById('post-rail').classList.toggle('open');
+  });
 </script>
 </body>
 </html>
