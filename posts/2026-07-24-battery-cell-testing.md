@@ -8,10 +8,6 @@ hold a charge, the EV whose range keeps shrinking. What almost nobody sees is
 the testing that happens long before that: the process that decides whether
 a cell is safe to sit in your pocket or your car in the first place.
 
-I co-authored a white paper on this last year with colleagues at Battery
-Associates (Eduardo Armijos, Sheida Isikli, and Mariano Rubio). Here's a
-shorter version of the core ideas.
-
 ## It's a check-up, not a single test
 
 Battery testing tracks the same handful of vital signs, over and over: how
