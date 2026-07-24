@@ -11,8 +11,8 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-brand">Dhevathi Rajagopalan Kannan</a>
-    <div class="nav-links">
+    <a href="index.html" class="nav-brand"><span class="brand-full">Dhevathi Rajan Rajagopalan Kannan</span><span class="brand-short">Dhev Kannan</span></a>
+    <div class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About</a>
       <a href="cv.html">CV</a>
@@ -21,6 +21,7 @@
       <a href="https://github.com/dhev-rk" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/dhevathirajan/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span></button>
   </div>
 </nav>
 
@@ -98,5 +99,6 @@
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/nav.js"></script>
 </body>
 </html>
