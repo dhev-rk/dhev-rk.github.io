@@ -1,10 +1,30 @@
 [
   {
+    "slug": "battery-cell-testing",
+    "title": "What actually goes into testing a battery cell",
+    "date": "2026-07-24",
+    "summary": "A working overview of battery cell testing — fixtures, temperature measurement, EIS, drive cycles, safety and abuse testing, and where AI and digital twins fit in.",
+    "tags": ["battery testing", "EIS", "safety testing", "abuse testing"],
+    "file": "2026-07-24-battery-cell-testing.md",
+    "related": [
+      { "title": "Second-life EV batteries are having a moment — IEEE Spectrum", "url": "https://spectrum.ieee.org/second-life-ev-batteries" }
+    ],
+    "references": [
+      { "text": "Battery Cell Testing — White Paper, Battery Associates (D. Kannan, E. Armijos, S. Isikli, M. Rubio, 2024)", "url": "#" }
+    ]
+  },
+  {
     "slug": "welcome",
     "title": "Welcome to my notes",
     "date": "2026-07-10",
     "summary": "Why I'm starting this — and what to expect: battery research, energy tech, and things in tech I find interesting.",
     "tags": ["meta"],
-    "file": "welcome.md"
+    "file": "welcome.md",
+    "related": [
+      { "title": "Second-life EV batteries are having a moment — IEEE Spectrum", "url": "https://spectrum.ieee.org/second-life-ev-batteries" }
+    ],
+    "references": [
+      { "text": "Volta Foundation — Annual Battery Report", "url": "https://www.volta.foundation/annual-battery-report" }
+    ]
   }
 ]
