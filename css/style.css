@@ -51,7 +51,12 @@ a.quiet:hover { text-decoration: underline; text-decoration-color: var(--accent)
 /* ---------- Masthead ---------- */
 .nav { border-bottom: 3px solid var(--ink); background: var(--bg); position: sticky; top: 0; z-index: 30; }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 20px; padding-bottom: 16px; gap: 16px; }
-.nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; flex-shrink: 1; min-width: 0; }
+.nav-brand { display: flex; flex-direction: column; gap: 2px; font-family: var(--font-display); color: var(--ink); text-decoration: none; flex-shrink: 1; min-width: 0; line-height: 1.15; }
+.brand-short { font-weight: 700; font-size: 1.3rem; letter-spacing: -0.01em; white-space: nowrap; }
+.brand-full { font-weight: 400; font-size: 0.72rem; color: var(--ink-faint); font-family: var(--font-ui); letter-spacing: 0.01em; white-space: nowrap; }
+@media (max-width: 560px) {
+  .brand-full { display: none; }
+}
 .nav-links { display: flex; gap: 24px; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; flex-wrap: wrap; }
 .nav-links a { color: var(--ink-soft); text-decoration: none; padding-bottom: 3px; border-bottom: 2px solid transparent; white-space: nowrap; }
 .nav-links a:hover, .nav-links a.active { color: var(--ink); border-bottom-color: var(--accent); }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Dhevathi Rajagopalan Kannan</title>
+<meta name="description" content="Projects and tools built by Dhevathi Rajagopalan Kannan.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-brand"><span class="brand-short">Dhev Kannan</span><span class="brand-full">Dhevathi Rajan Rajagopalan Kannan</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="cv.html">CV</a>
+      <a href="blog.html">Notes</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="https://github.com/dhev-rk" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/dhevathirajan/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:32px;">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h1 style="max-width:none;">Tools I've built</h1>
+    <p class="lede">Small apps and scripts built to solve real problems from the lab bench, alongside this site.</p>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <div class="grid">
+
+      <div class="card">
+        <h3>Battery Test Script Manager</h3>
+        <p>Edits and visualizes battery test script protocols for battery test instruments such as Arbin — makes it easier to review and adjust test protocols without digging through raw instrument files.</p>
+        <p class="tags">battery testing · protocol editor</p>
+        <div class="hero-links" style="margin-top:16px;">
+          <a class="btn primary" href="https://battery-test-script-manager.netlify.app/" target="_blank" rel="noopener">Open app →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>This website</h3>
+        <p>My personal site — CV, notes, and projects — built as a static site with a markdown-based publishing workflow, hosted on GitHub Pages.</p>
+        <p class="tags">static site · github pages</p>
+        <div class="hero-links" style="margin-top:16px;">
+          <a class="btn primary" href="https://github.com/dhev-rk/dhev-rk.github.io" target="_blank" rel="noopener">View source →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="state-msg" style="padding-top:32px;">
+      More projects and code are on
+      <a href="https://github.com/dhev-rk" target="_blank" rel="noopener">github.com/dhev-rk</a>.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Dhevathi Rajagopalan Kannan · <a href="mailto:dhevathirk@gmail.com">dhevathirk@gmail.com</a> · Houston, TX</p>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/nav.js"></script>
+</body>
+</html>
