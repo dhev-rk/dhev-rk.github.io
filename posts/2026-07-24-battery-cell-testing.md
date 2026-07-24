@@ -8,6 +8,10 @@ hold a charge, the EV whose range keeps shrinking. What almost nobody sees is
 the testing that happens long before that: the process that decides whether
 a cell is safe to sit in your pocket or your car in the first place.
 
+I co-authored a white paper on this last year with colleagues at Battery
+Associates (Eduardo Armijos, Sheida Isikli, and Mariano Rubio). Here's a
+shorter version of the core ideas.
+
 ## It's a check-up, not a single test
 
 Battery testing tracks the same handful of vital signs, over and over: how
@@ -56,17 +60,14 @@ Temperature measurement runs through nearly every test:
 | RTDs | Higher precision when the setup allows |
 | Thermal imaging | Non-contact; best for spotting hotspots across a pack |
 
-## One charge/discharge cycle, visually
+## One charge/discharge cycle, in short
 
 The most common charging protocol in commercial lithium-ion cells is
 **CC-CV**: constant current until the cell hits a cutoff voltage, then
 constant voltage while current tapers off. Discharge is typically just
-constant current. Here's what one full cycle looks like:
-
-![One CC-CV charge and CC discharge cycle, showing voltage rising during constant-current charge, holding flat during constant-voltage charge while current tapers, then discharging at constant current](posts/assets/cc-cv-cycle.png)
-
-Simple in concept, but the balance between charge speed and long-term
-capacity retention is where a lot of real engineering tradeoffs live.
+constant current. Simple in concept, but the balance between charge speed
+and long-term capacity retention is where a lot of real engineering
+tradeoffs live.
 
 ## The core tests, at a glance
 
