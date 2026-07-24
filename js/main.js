@@ -1,8 +1,9 @@
 /* ==========================================================
    Blog engine — no build step required.
    To publish a new post:
-     1. Add a file  posts/your-slug.md   (with a front-matter block, see posts/example-post.md)
+     1. Add a file  posts/your-slug.md
      2. Add one entry to posts/posts.json pointing at that file
+        (optional fields: tags, related [{title, url}], references [{text, url}])
    That's it — index.html and blog.html pick it up automatically.
    ========================================================== */
 
@@ -10,7 +11,6 @@ async function fetchPostsIndex() {
   const res = await fetch('posts/posts.json', { cache: 'no-store' });
   if (!res.ok) throw new Error('Could not load posts.json');
   const data = await res.json();
-  // newest first
   return data.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
@@ -51,8 +51,12 @@ async function loadSinglePost() {
   const slug = params.get('slug');
   const titleEl = document.getElementById('post-title');
   const dateEl = document.getElementById('post-date');
-  const tagsEl = document.getElementById('post-tags');
   const contentEl = document.getElementById('post-content');
+  const tagsEl = document.getElementById('rail-tags');
+  const relatedWrap = document.getElementById('rail-related-wrap');
+  const relatedEl = document.getElementById('rail-related');
+  const refsBlock = document.getElementById('references-block');
+  const refsList = document.getElementById('references-list');
 
   if (!slug) {
     titleEl.textContent = 'Note not found';
@@ -73,8 +77,44 @@ async function loadSinglePost() {
     document.title = `${meta.title} — Dhevathi Rajagopalan Kannan`;
     titleEl.textContent = meta.title;
     dateEl.textContent = formatDate(meta.date);
-    tagsEl.textContent = meta.tags ? meta.tags.join(' · ') : '';
     contentEl.innerHTML = marked.parse(body);
+
+    // Tags
+    if (meta.tags && meta.tags.length) {
+      tagsEl.innerHTML = meta.tags.map(t => `<span class="rail-tag">${escapeHtml(t)}</span>`).join('');
+    } else {
+      tagsEl.innerHTML = '<span class="rail-tag">notes</span>';
+    }
+
+    // Related
+    if (meta.related && meta.related.length) {
+      relatedWrap.style.display = 'block';
+      relatedEl.innerHTML = meta.related.map(r =>
+        `<li><a href="${escapeAttr(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a></li>`
+      ).join('');
+    }
+
+    // References
+    if (meta.references && meta.references.length) {
+      refsBlock.style.display = 'block';
+      refsList.innerHTML = meta.references.map(r =>
+        `<li><a href="${escapeAttr(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.text)}</a></li>`
+      ).join('');
+    }
+
+    // Share links
+    const pageUrl = window.location.href;
+    document.getElementById('share-email').href = `mailto:?subject=${encodeURIComponent(meta.title)}&body=${encodeURIComponent(pageUrl)}`;
+    document.getElementById('share-x').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(meta.title)}&url=${encodeURIComponent(pageUrl)}`;
+    document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+    document.getElementById('share-copy').addEventListener('click', (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText(pageUrl).then(() => {
+        e.target.textContent = '✓';
+        setTimeout(() => { e.target.textContent = '🔗'; }, 1500);
+      });
+    });
+
   } catch (err) {
     titleEl.textContent = 'Note not found';
     contentEl.innerHTML = '<p>This note could not be loaded. <a href="blog.html">Back to all notes →</a></p>';
@@ -82,8 +122,6 @@ async function loadSinglePost() {
   }
 }
 
-// Removes a leading --- front-matter block if present, since metadata
-// already lives in posts.json — keeps the markdown files simple.
 function stripFrontMatter(md) {
   if (md.startsWith('---')) {
     const end = md.indexOf('\n---', 3);
@@ -96,4 +134,7 @@ function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
+}
+function escapeAttr(str) {
+  return String(str).replace(/"/g, '&quot;');
 }
